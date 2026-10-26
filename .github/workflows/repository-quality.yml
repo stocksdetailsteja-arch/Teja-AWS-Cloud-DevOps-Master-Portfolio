@@ -1,0 +1,16 @@
+name: repository-quality
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Shell syntax
+        run: find scripts -type f -name "*.sh" -print0 | xargs -0 -r -n1 bash -n
+      - name: Prohibited files
+        run: bash scripts/quality/validate-repository.sh
+      - name: Whitespace
+        run: git diff --check

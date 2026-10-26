@@ -1,0 +1,12 @@
+name: Incident record
+description: Capture a reproducible operational failure
+body:
+  - type: textarea
+    attributes:
+      label: Symptoms and impact
+  - type: textarea
+    attributes:
+      label: Evidence and timeline
+  - type: textarea
+    attributes:
+      label: Root cause, recovery and prevention
